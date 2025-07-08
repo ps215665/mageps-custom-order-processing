@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="order_status_log" resource="default" engine="innodb" comment="Order Status Change Log">
+        <column name="log_id" xsi:type="int" unsigned="true" nullable="false" identity="true" comment="Log ID"/>
+        <column name="order_id" xsi:type="int" unsigned="true" nullable="false" comment="Order ID"/>
+        <column name="old_status" xsi:type="varchar" length="32" nullable="false" comment="Old Status"/>
+        <column name="new_status" xsi:type="varchar" length="32" nullable="false" comment="New Status"/>
+        <column name="changed_at" xsi:type="timestamp" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Changed At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="log_id"/>
+        </constraint>
+    </table>
+</schema>

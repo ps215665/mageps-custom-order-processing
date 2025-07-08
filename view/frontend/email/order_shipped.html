@@ -1,0 +1,17 @@
+<!--@vars {
+"var order.getCustomerFirstname()":"Customer First Name",
+"var order.getIncrementId()":"Order Increment ID",
+"var order.increment_id":"Order Increment ID (alternative access)",
+"var order":"Order Object"
+} @-->
+<!--@subject {{trans "Your order #%increment_id has been shipped!" increment_id=$order.increment_id}} @-->
+
+<p>
+    {{trans 'Hello %customer_name,' customer_name=$order.getCustomerFirstname()}}
+</p>
+<p>
+    {{trans 'Your order <strong>#%increment_id</strong> has been shipped.' increment_id=$order.getIncrementId() |raw}}
+</p>
+<p>
+    {{trans 'Thank you for shopping with us.'}}
+</p>
